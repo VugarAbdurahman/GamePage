@@ -1,0 +1,180 @@
+.last-reviewed {
+  height: 32.5rem;
+  @include breakpoint-down(tablet) {
+    height: 25rem;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($bg-color, 0.8),
+        rgba($comment-color, 0.3)
+      ),
+      url(images/latest-reviewed.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  background-color: $bg-color;
+  @include d-property(flex, center, space-between);
+
+  &-details {
+    padding: 5rem 5rem 2rem 9rem;
+    flex-basis: 60%;
+
+    @include breakpoint-down(tablet) {
+      flex-basis: 100%;
+      padding: 1rem 2rem;
+      .last-reviewed-container {
+        transform: skew(0) !important;
+        border: 0 !important;
+        padding: 0 !important;
+
+        & > * {
+          transform: skew(0) !important;
+        }
+      }
+    }
+    .last-reviewed-container {
+      padding: 3rem;
+      border-left: 1px solid $primary-color;
+      border-bottom: 1px solid $primary-color;
+      transform: skew(-28deg);
+
+      & > * {
+        transform: skew(28deg);
+      }
+
+      .game-name {
+        font-size: 2rem;
+        color: $primary-color;
+        font-family: $kanit-font;
+        @include breakpoint-down(exsmall) {
+          font-size: 1.8rem;
+        }
+      }
+
+      .game-type {
+        font-family: $kanit-font;
+        letter-spacing: 1px;
+        font-size: 1.7rem;
+        font-weight: normal;
+        color: #ffffff;
+        @include breakpoint-down(exsmall) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .user-comment {
+        font-size: 1rem;
+        line-height: 2;
+        font-family: $kanit-font;
+        @include breakpoint-down(exsmall) {
+          font-size: 0.9rem;
+        }
+
+        span {
+          cursor: pointer;
+          color: $primary-color;
+          font-size: 1.1rem;
+          @include breakpoint-down(exsmall) {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .last-reviewed-user {
+        @include d-property(flex, center, space-between);
+        margin-top: 1rem;
+        .user-info {
+          @include d-property(flex, center, space-between);
+
+          img {
+            width: 6rem;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            @include breakpoint-down(medium) {
+              width: 5rem;
+            }
+            @include breakpoint-down(exsmall) {
+              width: 4.5rem;
+            }
+          }
+          .reviewed-info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-left: 1rem;
+            @include breakpoint-down(exsmall) {
+              margin-left: 0.6rem;
+            }
+            span {
+              letter-spacing: 1px;
+              font-weight: bold;
+              font-size: 1.1rem;
+              @include breakpoint-down(medium) {
+                font-size: 1rem;
+              }
+              @include breakpoint-down(exsmall) {
+                font-size: 0.9rem;
+              }
+            }
+            span:first-child {
+              color: $primary-color;
+              font-family: $kanit-font;
+            }
+            span:not(:first-child) {
+              margin-top: 1rem;
+              color: $date-color;
+              font-family: $kanit-font;
+            }
+          }
+        }
+
+        .user-paltforms {
+          margin: 0 2rem;
+          @include d-property(flex, center, center);
+          i {
+            font-size: 3rem;
+            @include breakpoint-down(medium) {
+              font-size: 2.5rem;
+            }
+            @include breakpoint-down(exsmall) {
+              font-size: 2rem;
+            }
+          }
+          i:not(:last-child) {
+            color: $primary-color;
+            margin-right: 1rem;
+          }
+          @include breakpoint-down(exsmall) {
+            margin: 0 0.8rem;
+          }
+        }
+
+        .user-rating {
+          display: flex;
+
+          .checked {
+            color: $date-color;
+          }
+        }
+      }
+    }
+  }
+
+  &-image {
+    flex-basis: 40%;
+    height: 100%;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($primary-color, 0.9),
+        rgba($primary-color, 0.1)
+      ),
+      url(/images/latest-reviewed.jpg);
+    background-size: cover;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+
+    @include breakpoint-down(tablet) {
+      display: none;
+    }
+  }
+}

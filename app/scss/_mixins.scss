@@ -1,0 +1,40 @@
+// Display property
+@mixin d-property($display, $align-items, $justify-content) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+// Breakpoints
+
+// 640px, 1024px, 1400px, (Min-width)
+$breakpoints-up: (
+  "medium": "640px",
+  "tablet": "840px",
+  "large": "1024px",
+  "xlarge": "1400px",
+);
+
+// 480px, 639px, 1023px, 1399px, (Max-width)
+$breakpoints-down: (
+  "maxsmall": "300px",
+  "exsmall": "430px",
+  "small": "639px",
+  "tablet": "839px",
+  "medium": "1023px",
+  "large": "1399px",
+);
+
+// increasing screen size
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+// deccreasing screen size
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

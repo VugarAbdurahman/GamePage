@@ -1,0 +1,90 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Open+Sans:wght@300&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: $primary-font;
+  color: $light-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $primary-font;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  font-family: $secondary-font;
+  color: $gray-color;
+  background-color: $light-color;
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+header,
+nav {
+  background-color: $bg-color;
+}
+
+.container {
+  max-width: 114rem;
+  width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
+
+  @include breakpoint-down(medium) {
+    width: 90%;
+    padding: 0 1rem;
+  }
+  @include breakpoint-down(small) {
+    width: 93%;
+    padding: 0rem;
+  }
+}
+
+.title {
+  text-align: center;
+  h1 {
+    margin-bottom: 2rem;
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-family: $primary-font;
+    font-weight: 500;
+    color: $primary-color;
+
+    @include breakpoint-down(medium) {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @include breakpoint-down(small) {
+      font-size: 2.3rem;
+      margin-bottom: 0rem;
+    }
+  }
+}

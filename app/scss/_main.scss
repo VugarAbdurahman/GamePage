@@ -1,0 +1,246 @@
+// Main Content
+
+main {
+  .main-slider-container {
+    .single-slide {
+      position: relative;
+      height: 100vh;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+      .slide-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0.4) 0%,
+          rgba(0, 0, 0, 0.5) 25%,
+          rgba(0, 0, 0, 0.7) 64%,
+          rgba(0, 0, 0, 0.8) 97%
+        );
+
+        .slide_text {
+          background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0)
+          );
+          position: absolute;
+          top: 25%;
+          left: 0;
+          width: 70%;
+          padding: 3.5rem 3rem;
+          border-top: 3px solid;
+          border-bottom: 3px solid;
+          border-image: linear-gradient(to right, red, rgba(0, 0, 0, 0)) 1;
+          user-select: none;
+          animation: textAnimation 1.7s ease-out;
+
+          h1 {
+            letter-spacing: 1px;
+            font-size: 3rem;
+            color: $light-color;
+            font-weight: bold;
+            font-family: $primary-font;
+          }
+
+          p {
+            color: #fff;
+            font-size: 1.35rem;
+            letter-spacing: 0.3px;
+            color: #fff;
+            font-family: $secondary-font;
+          }
+        }
+      }
+    }
+  }
+
+  // Customizing Latest News
+
+  .latest {
+    @include d-property(flex, center, center);
+    background-color: $bg-color;
+    height: 8rem;
+    user-select: none;
+    &-title {
+      background-color: $primary-color;
+      flex: 25%;
+
+      @include d-property(flex, center, center);
+      height: 100%;
+      h4 {
+        color: #fff;
+        font-size: 2.3rem;
+      }
+    }
+    marquee {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+
+      .latest-content {
+        flex: 75%;
+        width: 100%;
+        height: 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          // display: inline-block;
+          font-size: 1.6rem;
+          margin-left: 7rem;
+          .badge {
+            font-size: 1.9rem;
+            background-color: red;
+            padding: 1rem 2rem;
+            font-family: $primary-font;
+            border-radius: 0.5rem;
+            letter-spacing: 0.5px;
+            margin-right: 1rem;
+          }
+          .b-update {
+            background-color: $date-color;
+          }
+          .b-tourn {
+            background-color: $comment-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Customizing OWL Carousel
+
+.owl-theme {
+  position: relative;
+
+  .owl-dots {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    z-index: 10;
+    display: flex;
+
+    .owl-dot {
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+      transition: all 0.5s;
+      margin-left: 2.5rem;
+
+      span {
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        font-family: $primary-font;
+        background-color: transparent;
+      }
+
+      &.active,
+      &:hover {
+        color: $primary-color;
+
+        span {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+//For under 839px devices
+@include breakpoint-down(tablet) {
+  .main-slider-container {
+    .single-slide {
+      height: 90vh !important;
+      .slide_text {
+        width: 100% !important;
+        h1 {
+          font-size: 3rem !important;
+        }
+        p {
+          font-size: 1.3rem !important;
+        }
+      }
+    }
+  }
+
+  .latest-news {
+    .latest-title {
+      padding-right: 1rem !important;
+      width: 25% !important;
+      h4 {
+        font-size: 2rem !important;
+      }
+    }
+  }
+}
+
+// For under 639px devices
+@include breakpoint-down(small) {
+  .main-slider-container {
+    .single-slide {
+      height: 50rem !important;
+      .slide_text {
+        padding: 3rem 2rem !important;
+        h1 {
+          font-size: 2rem !important;
+        }
+        p {
+          font-size: 0.8rem !important;
+        }
+      }
+    }
+  }
+
+  // Owl Theme
+  .owl-dot {
+    width: 2rem !important;
+    margin-left: 1.5rem !important;
+    span {
+      font-size: 2rem !important;
+    }
+  }
+  // Latest news
+  .latest {
+    height: 5rem !important;
+    .latest-title {
+      padding-right: 0.5rem !important;
+      flex: 30% !important;
+      h4 {
+        font-size: 1.7rem !important;
+      }
+    }
+
+    .latest-content {
+      p {
+        font-size: 1.3rem !important;
+        margin-left: 5rem !important;
+
+        .badge {
+          font-size: 1.5rem !important;
+          padding: 0.5rem 1.5rem !important;
+          letter-spacing: 0.5px !important;
+          margin-right: 0.7rem !important;
+        }
+      }
+    }
+  }
+}
+
+// Extra small devices (<530px)
+@include breakpoint-down(exsmall) {
+  .latest {
+    .latest-title {
+      padding-right: 0 !important;
+      h4 {
+        font-size: 1.3rem !important;
+      }
+    }
+  }
+}

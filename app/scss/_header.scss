@@ -1,0 +1,303 @@
+// ! Top header
+.top-header {
+  border-bottom: 1px solid $primary-color;
+
+  .container {
+    @include d-property(flex, center, space-between);
+    flex-wrap: wrap;
+    // Breakpoint 639px max-width
+    @include breakpoint-down(small) {
+      // Logo
+      .logo {
+        width: 50%;
+        h1 {
+          font-size: 2.9rem;
+          span {
+            font-size: 1.5rem;
+            i {
+              font-size: 1.1rem;
+              top: -4px;
+            }
+          }
+        }
+      }
+
+      .login-area {
+        width: 50%;
+        .btn {
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      .top-socials-menu {
+        width: 100%;
+      }
+    }
+  }
+  // Logo
+  .logo {
+    user-select: none;
+    cursor: pointer;
+
+    h1 {
+      font-size: 5rem;
+      font-family: $primary-font;
+      color: $light-color;
+      span {
+        position: relative;
+        font-size: 2.5rem;
+        color: $primary-color;
+        font-family: $primary-font;
+      }
+      i {
+        font-size: 2.5rem;
+        color: $date-color;
+        position: absolute;
+        top: -8px;
+        left: 0;
+      }
+    }
+  }
+
+  // Top socials
+  .top-socials-menu {
+    display: flex;
+    @include breakpoint-up(medium) {
+      order: 1;
+    }
+    li {
+      margin: 0 1rem;
+      padding: 1rem;
+      a {
+        font-size: 2rem;
+        color: $light-color;
+        transition: all 0.5s;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  // Login area
+  .login-area {
+    display: flex;
+    @include breakpoint-up(medium) {
+      order: 2;
+    }
+    .btn {
+      color: $primary-color;
+      background-color: $light-color;
+      padding: 1rem 2rem;
+      margin-left: 2rem;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      transition: all 0.5s;
+      border-radius: 0.2rem;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $light-color;
+      }
+
+      i {
+        display: none;
+      }
+    }
+  }
+
+  // Responsive menu
+
+  // Breakpoint 1023px max width
+  @include breakpoint-down(medium) {
+    // Header Logo
+    .logo {
+      h1 {
+        font-size: 3.6rem;
+
+        span {
+          font-size: 1.5rem;
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    // Social medias fron header
+    .top-socials-menu {
+      justify-content: space-evenly;
+      li {
+        margin: 0 0.6rem;
+        padding: 0.6rem;
+        a {
+          font-size: 1.7rem;
+        }
+      }
+    }
+
+    // Login and Sign in
+    .login-area {
+      justify-content: end;
+      .btn {
+        margin-left: 1rem;
+        span {
+          display: none;
+        }
+        i {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// ! Nav menu
+
+nav {
+  position: relative;
+  .navbar {
+    .navbar-list {
+      display: flex;
+      @include breakpoint-down(tablet) {
+        position: fixed;
+        background-color: $bg-color;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+        top: 2rem;
+        right: -50%;
+        width: 100%;
+        transition: all 0.44s;
+        flex-direction: column;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        line-height: 8rem;
+        @include breakpoint-down(tablet) {
+          line-height: 4rem;
+        }
+
+        .drop-down {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 300ms;
+          z-index: 10;
+          background-color: lighten($bg-color, 10%);
+          @include breakpoint-up(tablet) {
+            position: absolute;
+            top: 12rem;
+            left: 50%;
+            width: 150%;
+          }
+          @include breakpoint-down(tablet) {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+          }
+        }
+        .activeDropDown {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        a,
+        span {
+          font-size: 1.6rem;
+          padding: 0 2rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-family: $primary-font;
+          @include breakpoint-down(medium) {
+            font-size: 1.2rem;
+            padding: 0 1.5rem;
+            letter-spacing: 1px;
+          }
+          @include breakpoint-down(small) {
+            font-size: 1.3rem;
+            padding: 0 1.6rem;
+          }
+        }
+
+        i {
+          font-size: 1.6rem;
+          color: $light-color;
+          margin-left: -1.3rem;
+          margin-right: 1rem;
+          @include breakpoint-down(medium) {
+            font-size: 1.2rem;
+          }
+        }
+
+        &:hover {
+          background-color: $primary-color;
+          @include breakpoint-up(tablet) {
+            & .drop-down {
+              opacity: 1;
+              visibility: visible;
+              top: 8rem;
+            }
+          }
+        }
+      }
+      @include breakpoint-down(tablet) {
+        .dropBtn:last-child {
+          .drop-down {
+            top: -12rem;
+          }
+        }
+      }
+    }
+    .active {
+      z-index: 1000 !important;
+      right: 0;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+
+  // Breakpoint 839px max width
+  @include breakpoint-up(tablet) {
+    .mobile-menu {
+      display: none;
+    }
+  }
+
+  // Breakpoint 639px max-width
+  @include breakpoint-down(tablet) {
+    // Mobile menu
+    .mobile-menu {
+      display: flex;
+      justify-content: end;
+      input {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .btn {
+        z-index: 9999 !important;
+        text-align: center;
+
+        cursor: pointer;
+        transition: all 200ms;
+        i {
+          font-size: 3.2rem;
+          margin: 0.8rem 0;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      .close-btn {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+.contact {
+  background-image: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    url(/images/contact.jpg);
+  min-height: 55rem;
+  background-size: cover;
+  @include d-property(flex, center, center);
+  @include breakpoint-down(small) {
+    padding: 3rem 0;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    @include breakpoint-down(small) {
+      flex-direction: column;
+    }
+    &-detail {
+      background-color: rgba($primary-color, 0.8);
+      flex: 1;
+      margin-right: -5rem;
+      z-index: 2;
+      min-height: 35rem;
+      padding: 4rem;
+      @include d-property(flex, center, center);
+      flex-direction: column;
+      @include breakpoint-down(tablet) {
+        min-height: 30rem;
+      }
+      @include breakpoint-down(small) {
+        padding: 2rem;
+        width: 60%;
+        margin: 0;
+        margin-bottom: -5rem;
+        min-height: 21rem;
+      }
+      @include breakpoint-down(exsmall) {
+        padding: 1rem;
+        width: 70%;
+      }
+      h2 {
+        font-size: 2.5rem;
+        @include breakpoint-down(small) {
+          font-size: 2.2rem;
+        }
+      }
+
+      ul {
+        @include breakpoint-down(small) {
+          width: 100%;
+        }
+        li {
+          display: flex;
+          align-items: center;
+          margin: 2rem 0;
+          @include breakpoint-down(tablet) {
+            margin: 1rem 0;
+            i {
+              font-size: 2.4rem;
+            }
+          }
+          @include breakpoint-down(small) {
+            i {
+              font-size: 2rem;
+            }
+          }
+          div {
+            margin-right: 1rem;
+            @include breakpoint-down(small) {
+              margin-right: 0.5rem;
+            }
+          }
+
+          p {
+            font-size: 1.3rem;
+            @include breakpoint-down(tablet) {
+              font-size: 1.1rem;
+            }
+            @include breakpoint-down(small) {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-form {
+      background-color: rgba($bg-color, 0.8);
+      flex: 2;
+      min-height: 45rem;
+      @include d-property(flex, center, center);
+      @include breakpoint-down(tablet) {
+        min-height: 40rem;
+      }
+      @include breakpoint-down(small) {
+        width: 90%;
+        min-height: 33rem;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include breakpoint-down(small) {
+          padding-top: 3rem;
+        }
+        input,
+        textarea {
+          font-family: $primary-font;
+          margin: 1.5rem 0;
+          padding: 0.3rem 1rem;
+          color: #fff;
+          font-size: 1.4rem;
+          width: 60%;
+          outline: 0;
+          resize: none;
+          border: 0;
+          background: transparent;
+          border-bottom: 1px solid $primary-color;
+          @include breakpoint-down(tablet) {
+            width: 68%;
+            font-size: 1.1rem;
+          }
+          @include breakpoint-down(small) {
+            width: 80%;
+          }
+        }
+
+        input[type="submit"] {
+          background-color: $comment-color;
+          font-family: $primary-font;
+          border-radius: 0.2rem;
+          font-size: 2.5rem;
+          border: 0;
+          cursor: pointer;
+          transition: all ease 0.1s;
+          &:hover {
+            background-color: #08abbdcd;
+          }
+          @include breakpoint-down(tablet) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
