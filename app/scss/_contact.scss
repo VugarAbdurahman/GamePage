@@ -4,7 +4,7 @@
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.9) 100%
     ),
-    url(/images/contact.jpg);
+    url(../images/contact.jpg);
   min-height: 55rem;
   background-size: cover;
   @include d-property(flex, center, center);
